@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <title>NitroDiffusion</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+
         body {
             margin: 0;
-            font-family: 'Roboto', Arial, sans-serif;
+            /*font-family: 'Roboto', Arial, sans-serif;*/
+            font-family: 'Kalam', cursive;
+            font-weight: 300;
             background-color: #1a1a1a;
             color: #e0e0e0;
         }
 
-        .contentNoEffect {
-            max-width: 1000px;
+        .content-no-effect {
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
             margin-bottom: 30px;
@@ -24,43 +28,31 @@
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
-            /*background-color: rgba(40, 40, 40, 0.6);*/
+            background-color: rgba(40, 40, 40, 0.6);
             backdrop-filter: blur(10px);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             margin-bottom: 30px;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease-in-out;
         }
 
-        /*.content::before {*/
-        /*    content: '';*/
-        /*    position: absolute;*/
-        /*    top: -50%;*/
-        /*    left: -50%;*/
-        /*    width: 200%;*/
-        /*    height: 200%;*/
-        /*    background: radial-gradient(*/
-        /*        circle at center,*/
-        /*        rgba(255, 255, 255, 0.1) 0%,*/
-        /*        rgba(255, 255, 255, 0.05) 25%,*/
-        /*        transparent 70%*/
-        /*    );*/
-        /*    opacity: 0;*/
-        /*    transition: opacity 0.3s ease;*/
-        /*}*/
-
-        /*.content:hover::before {*/
-        /*    opacity: 1;*/
-        /*}*/
+        .content:hover {
+            background-color: rgba(26, 26, 26, 1.0);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.25);
+        }
 
         h1 {
+            font-family: 'Kalam', cursive;
             text-align: center;
             color: #fff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.75);
         }
 
         h2 {
+            font-family: 'Kalam', cursive;
             color: #cccccc;
             text-shadow: 0 0 5px rgba(204, 204, 204, 0.3);
             border-bottom: 2px solid rgba(180, 180, 180, 0.2);
@@ -135,17 +127,17 @@
         }
 
         .teaser-video {
-            width: 100%;
-            border-radius: 10px;
-            margin: 20px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            display: block; /* Ensures it's treated as a block element */
+            width: 80%;
+            margin: 20px auto;
+            box-shadow: 0 0px 25px rgba(255, 255, 255, 0.25);
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
         }
 
-        .summary-img {
-            width: 100%;
-            border-radius: 10px;
-            margin: 20px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        .teaser-video:hover {
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.5);
         }
 
         code {
@@ -197,11 +189,55 @@
             font-size: 1.1em;
             color: #888;
         }
+
+        .approach-container {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .approach-text {
+            flex: 1;
+        }
+
+        .approach-image {
+            flex: 1;
+            max-width: 30%;
+        }
+
+        .summary-img {
+            width: 100%;
+            /*box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);*/
+            margin-bottom: 25px; /* Added spacing between images */
+        }
+
+        .summary-img:last-child {
+            margin-bottom: 0; /* Remove margin from last image */
+        }
+
+        /* Update responsive layout for mobile */
+        @media (max-width: 768px) {
+            .approach-container {
+                flex-direction: column;
+            }
+
+            .approach-image {
+                max-width: 100%;
+            }
+        }
+
+        /* Responsive layout for mobile */
+        @media (max-width: 768px) {
+            .content-flex {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 
 <body>
-<div class="contentNoEffect">
+<div class="content-no-effect">
     <h1>NitroDiffusion: High-Fidelity Single-Step Diffusion<br>through Dynamic Adversarial Training</h1>
 
     <div class="badge-container">
@@ -209,15 +245,23 @@
     </div>
 
     <p id="authors">
-        <a href="#" class="author-name">Dar-Yen Chen</a>
-        <a href="#" class="author-name">Hmrishav Bandyopadhyay</a>
-        <a href="#" class="author-name">Kai Zou</a>
-        <a href="#" class="author-name">Yi-Zhe Song</a>
+        <a href="https://www.linkedin.com/in/dar-yen-chen-38074123a/" class="author-name" target="_blank" rel="noopener noreferrer">
+            Dar-Yen Chen
+        </a>
+        <a href="https://hmrishavbandy.github.io/" class="author-name" target="_blank" rel="noopener noreferrer">
+            Hmrishav Bandyopadhyay
+        </a>
+        <a href="https://www.linkedin.com/in/kz4225/" class="author-name" target="_blank" rel="noopener noreferrer">
+            Kai Zou
+        </a>
+        <a href="https://www.surrey.ac.uk/people/yi-zhe-song" class="author-name" target="_blank" rel="noopener noreferrer">
+            Yi-Zhe Song
+        </a>
         <br><br>
         <span class="organization-name">SketchX, CVSSP, University of Surrey, United Kingdom</span>
         <br><br>
         <div class="links-container">
-            <a href="#" class="link-button">
+            <a href="https://arxiv.org/abs/2412.02030" class="link-button" target="_blank" rel="noopener noreferrer">
                 <svg width="24" height="24" viewBox="0 0 17.732 24.269">
                     <g id="tiny">
                         <path d="M573.549,280.916l2.266,2.738,6.674-7.84c.353-.47.52-.717.353-1.117a1.218,1.218,0,0,0-1.061-.748h0a.953.953,0,0,0-.712.262Z" transform="translate(-566.984 -271.548)" fill="#bdb9b4"/>
@@ -227,27 +271,30 @@
                 </svg>
                 Paper
             </a>
-            <a href="#" class="link-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 98 96">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="#FFFFFF"/>
-                </svg>
-                Code
-            </a>
-            <a href="#" class="link-button">
+<!--            <a href="#" class="link-button" target="_blank" rel="noopener noreferrer">-->
+<!--                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 98 96">-->
+<!--                    <path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="#FFFFFF"/>-->
+<!--                </svg>-->
+<!--                Code-->
+<!--            </a>-->
+            <a href="https://huggingface.co/ChenDY/NitroFusion" class="link-button" target="_blank" rel="noopener noreferrer">
                 🤗 HuggingFace Repo
+            </a>
+            <a href="https://huggingface.co/spaces/ChenDY/NitroFusion_1step_T2I" class="link-button" target="_blank" rel="noopener noreferrer">
+                🤗 Demo
             </a>
         </div>
     </p>
 
-    <video class="teaser-video" controls poster="/api/placeholder/1000/500">
-        <source src="demo.mp4" type="video/mp4">
+    <video class="teaser-video" controls poster="assets/video_poster.png">
+        <source src="assets/demo_video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 </div>
 
 <div class="content">
     <h2>Abstract</h2>
-    <img class="summary-img" src="/api/placeholder/1000/300" alt="Overview">
+    <img class="summary-img" src="assets/banner-compressed.png" alt="Banner">
     <p>
         We introduce NitroFusion, a fundamentally different approach to single-step diffusion that achieves high-quality generation through a dynamic adversarial framework. While one-step methods offer dramatic speed advantages, they typically suffer from quality degradation compared to their multi-step counterparts. Just as a panel of art critics provides comprehensive feedback by specializing in different aspects like composition, color, and technique, our approach maintains a large pool of specialized discriminator heads that collectively guide the generation process. Each discriminator group develops expertise in specific quality aspects at different noise levels, providing diverse feedback that enables high-fidelity one-step generation. Our framework combines: (i) a dynamic discriminator pool with specialized discriminator groups to improve generation quality, (ii) strategic refresh mechanisms to prevent discriminator overfitting, and (iii) global-local discriminator heads for multi-scale quality assessment, and unconditional/conditional training for balanced generation. Additionally, our framework uniquely supports flexible deployment through bottom-up refinement, allowing users to dynamically choose between 1-4 denoising steps with the same model for direct quality-speed trade-offs. Through comprehensive experiments, we demonstrate that NitroFusion significantly outperforms existing single-step methods across multiple evaluation metrics, particularly excelling in preserving fine details and global consistency.
     </p>
@@ -255,31 +302,59 @@
 
 <div class="content">
     <h2>Approach</h2>
-    <p>
-        Our method distils a multi-step teacher model into an efficient one-step student generator. The Dynamic Adversarial Framework provides dynamic, stable feedback via a large dynamic Discriminator Head Pool, dynamically sampling a subset of heads in each iteration to provide unbiased and stable feedback to judge real or fake, effectively balancing one-step efficiency with high-quality generation.
-    </p>
-    <img class="summary-img" src="/api/placeholder/1000/400" alt="Architecture">
+    <div class="approach-container">
+        <div class="approach-text">
+            <p>
+                Our method distils a multi-step teacher model into an efficient one-step student generator. The Dynamic Adversarial Framework provides dynamic, stable feedback via a large dynamic Discriminator Head Pool, dynamically sampling a subset of heads in each iteration to provide unbiased and stable feedback to judge real or fake, effectively balancing one-step efficiency with high-quality generation.
+            </p>
+            <p>
+                The discriminator employs a frozen UNet backbone with a dynamic pool of discriminator heads. At each iteration, a subset of heads is sampled and trained, with 1% of all heads randomly reinitialized to maintain diverse signals and prevent overfitting.
+            </p>
+        </div>
+        <div class="approach-image">
+            <img class="summary-img" src="assets/model_2.jpg" alt="Architecture">
+        </div>
+    </div>
+    <img class="summary-img" src="assets/model_1.jpg" alt="Architecture">
 </div>
 
 <div class="content">
     <h2>Results</h2>
-    <img class="summary-img" src="/api/placeholder/1000/600" alt="Results">
+    <p>
+        Visual comparison of our models (NitroSD-Realism and NitroSD-Vibrant) against multi-step SDXL, our teacher models (4-step DMD2 and 8-step Hyper-SDXL), and selected 1-step state-of-the-art baselines, SDXL-Turbo and SDXL-Lightning.
+    </p>
+    <img class="summary-img" src="assets/qualitative_comparison_supp-compresses.png" alt="Comparison">
+
+    <p>
+        1- to 4-step refinement process of our NitroSD-Realism and -Vibrant, illustrating the progressive enhancement of image quality and detail across steps.
+    </p>
+    <img class="summary-img" src="assets/multi_step_supp-compressed.png" alt="Refinement">
+
+    <p>
+        Single-step samples from NitroSD-Realism.
+    </p>
+    <img class="summary-img" src="assets/showcase_realism-compressed.png" alt="Showcase of NitroSD-Realism">
+
+    <p>
+        Single-step samples from NitroSD-Vibrant.
+    </p>
+    <img class="summary-img" src="assets/showcase_vibrant-compressed.png" alt="Showcase of NitroSD-Vibrant">
 </div>
 
 <div class="content">
     <h2>BibTeX</h2>
     <code>
-    @article{chen2023democaricature,<br>
-  &nbsp;&nbsp;title={DemoCaricature: Democratising Caricature Generation with a Rough Sketch},<br>
-  &nbsp;&nbsp;author={Dar-Yen Chen and Subhadeep Koley and Aneeshan Sain and Pinaki Nath Chowdhury and Tao Xiang and Ayan Kumar Bhunia and Yi-Zhe Song},<br>
-  &nbsp;&nbsp;booktitle={arXiv preprint arxiv:2312.04364},<br>
-  &nbsp;&nbsp;year={2023}<br>
+    @article{chen2024nitrofusionhighfidelitysinglestepdiffusion,<br>
+  &nbsp;&nbsp;title={NitroFusion: High-Fidelity Single-Step Diffusion through Dynamic Adversarial Training},<br>
+  &nbsp;&nbsp;author={Dar-Yen Chen and Hmrishav Bandyopadhyay and Kai Zou and Yi-Zhe Song},<br>
+  &nbsp;&nbsp;booktitle={arXiv preprint arxiv:2412.02030},<br>
+  &nbsp;&nbsp;year={2024}<br>
   }
   </code>
 </div>
 
 <footer class="footer">
-    Website design inspired by DemoCaricature.
+    Website design inspired by <a href="https://democaricature.github.io/" target="_blank" rel="noopener noreferrer">DemoCaricature</a>.
 </footer>
 
 </body>
